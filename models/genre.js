@@ -1,24 +1,24 @@
-import sequelize from "../config/sequelize.js";
-import { DataTypes } from "sequelize";
+import sequelize from '../config/sequelize.js'
+import { DataTypes } from 'sequelize'
 
 const Genre = sequelize.define(
-  "genres",
+  'genres',
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     },
     urlPhoto: {
-      type: DataTypes.STRING,
-    },
+      type: DataTypes.STRING
+    }
   },
   {
-    timestamps: false,
+    timestamps: false
   }
-);
+)
 
-export default Genre;
+export default Genre

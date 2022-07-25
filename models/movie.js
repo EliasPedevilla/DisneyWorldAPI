@@ -1,36 +1,36 @@
-import sequelize from "../config/sequelize.js";
-import { DataTypes } from "sequelize";
-import Genre from "./genre.js";
+import sequelize from '../config/sequelize.js'
+import { DataTypes } from 'sequelize'
+import Genre from './genre.js'
 
 const Movie = sequelize.define(
-  "movies",
+  'movies',
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     urlPhoto: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isUrl: true,
-      },
+        isUrl: true
+      }
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         is: /^[A-Za-z\s]+$/g,
-        len: [3, 20],
-      },
+        len: [3, 20]
+      }
     },
     creationDate: {
       type: DataTypes.DATE,
       allowNull: false,
       validate: {
-        isDate: true,
-      },
+        isDate: true
+      }
     },
     rating: {
       type: DataTypes.INTEGER,
@@ -38,21 +38,21 @@ const Movie = sequelize.define(
       validate: {
         isDecimal: true,
         max: 5,
-        min: 0,
-      },
+        min: 0
+      }
     },
     genreId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Genre,
-        key: "id",
-      },
-    },
+        key: 'id'
+      }
+    }
   },
   {
-    timestamps: false,
+    timestamps: false
   }
-);
+)
 
-export default Movie;
+export default Movie

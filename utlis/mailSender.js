@@ -1,22 +1,22 @@
-import nodemailer from "nodemailer";
-import { google } from "googleapis";
-import dotenv from "dotenv";
+import nodemailer from 'nodemailer'
+import { google } from 'googleapis'
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
 export const sendWelcomeEmail = async (userEmail) => {
-  const CLIENT_ID = process.env.CLIENT_ID;
-  const CLIENT_SECRET = process.env.CLIENT_SECRET;
-  const REDIRECT_URI = process.env.REDIRECT_URI;
-  const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+  const CLIENT_ID = process.env.CLIENT_ID
+  const CLIENT_SECRET = process.env.CLIENT_SECRET
+  const REDIRECT_URI = process.env.REDIRECT_URI
+  const REFRESH_TOKEN = process.env.REFRESH_TOKEN
 
   const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,
     CLIENT_SECRET,
     REDIRECT_URI
-  );
+  )
 
-  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
 
   const contentHTML = `
     <h1>Bienvenido a Disney World Api</h1>
@@ -27,34 +27,34 @@ export const sendWelcomeEmail = async (userEmail) => {
     Obtene mas informacion haciendo <a href="https://github.com/EliasPedevilla/DisneyWorldAPI">
     click aqui</a>
      </p>
-    `;
+    `
 
   try {
-    const accsessToken = await oAuth2Client.getAccessToken();
+    const accsessToken = await oAuth2Client.getAccessToken()
 
     const transpoter = nodemailer.createTransport({
-      service: "gmail",
+      service: 'gmail',
       auth: {
-        type: "OAuth2",
+        type: 'OAuth2',
         user: userEmail,
         clientId: CLIENT_ID,
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
-        accessToken: accsessToken,
-      },
-    });
+        accessToken: accsessToken
+      }
+    })
 
     const mailOptions = {
-      from: "Disney World Api ",
+      from: 'Disney World Api ',
       to: userEmail,
-      subject: "Welcome to Disney World Api",
-      html: contentHTML,
-    };
+      subject: 'Welcome to Disney World Api',
+      html: contentHTML
+    }
 
-    const result = await transpoter.sendMail(mailOptions);
+    const result = await transpoter.sendMail(mailOptions)
 
-    return result;
-  } catch (err) {
-    new Error(err);
+    return result
+  } catch (error) {
+    Error(error)
   }
-};
+}

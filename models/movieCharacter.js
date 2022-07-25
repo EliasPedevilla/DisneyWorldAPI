@@ -1,34 +1,34 @@
-import sequelize from "../config/sequelize.js";
-import { DataTypes } from "sequelize";
-import Movie from "./movie.js";
-import Character from "./character.js";
+import sequelize from '../config/sequelize.js'
+import { DataTypes } from 'sequelize'
+import Movie from './movie.js'
+import Character from './character.js'
 
 const MovieCharacter = sequelize.define(
-  "movies-characters",
+  'movies-characters',
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     characterId: {
       type: DataTypes.INTEGER,
       references: {
         model: Character,
-        key: "id",
-      },
+        key: 'id'
+      }
     },
     movieId: {
       type: DataTypes.INTEGER,
       references: {
         model: Movie,
-        key: "id",
-      },
-    },
+        key: 'id'
+      }
+    }
   },
   {
-    timestamps: false,
+    timestamps: false
   }
-);
+)
 
-export default MovieCharacter;
+export default MovieCharacter

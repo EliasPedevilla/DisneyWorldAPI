@@ -2,33 +2,34 @@
   "name": "disneyworldapi",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "Is an application that interacts with collections about disney characters and movies.",
   "main": "index.js",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
     "test": "mocha tests/api.test.js --exit"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["disney"],
+  "author": "Elias Pedevilla",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "chai": "^4.3.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "googleapis": "^105.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^10.0.0",
-    "mysql2": "^2.3.3",
     "nodemailer": "^6.7.7",
-    "pg": "^8.7.3",
-    "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.3"
   },
   "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.19",
-    "supertest": "^6.2.4"
+    "supertest": "^6.2.4",
+    "mocha": "^10.0.0"
   }
 }

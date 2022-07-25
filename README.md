@@ -1,21 +1,27 @@
-﻿# DisneyWorldAPI
+﻿# Disney World API
 
-Disney World api es una apir rest que te permite explorar tanto los personajes como las peliculas o series del mundo de disney. La aplicacion se hizo como desafio planteado por Alkemy.
+Disney World api es una api rest que te permite explorar tanto los personajes como las peliculas o series del mundo de disney. La aplicacion se hizo como desafio planteado por Alkemy.
 
 ## Instalacion
 
 ### Clonar el proyecto de github.
+
 ```bash
   git clone git@github.com:EliasPedevilla/DisneyWorldAPI.git
 ```
-### Instalar dependencias 
+
+### Instalar dependencias
+
 ```bash
   cd DisneyWorldApi
 ```
+
 ```bash
   npm install
 ```
+
 ### Configurar variables de entorno
+
 1.  Encontrará un archivo llamado `example.env` en la raíz del proyecto.
 2.  Crea un nuevo archivo copiando y pegando el archivo y renombrándolo como `.env`.
     ```bash
@@ -34,7 +40,7 @@ npm run start
 
 Sabrás que el servidor se está ejecutando comprobando la salida del comando
 
->Connection has been established successfully.
+> Connection has been established successfully.
 
 > server listen on port 3000 <
 
@@ -52,24 +58,26 @@ npm run test
 
 Puedes establecer un comando personalizado para la prueba en el archivo `package.json` dentro de la propiedad `scripts`. También puede cambiar el tiempo de espera para cada aserción con el parámetro `--timeout` del comando mocha.
 
-
 ## Estructura del directorio
-/router   Aquí es donde se definen los endpoints de la API. Cada archivo contiene el router para cada seccion con un index enrrutador.
 
-/models   Aqui se definen los esquemas de base de datos. Cualquier cambio en el modelo de datos debe hacerse aquí.
+/router Aquí es donde se definen los endpoints de la API. Cada archivo contiene el router para cada seccion con un index enrrutador.
 
-/controller   Este es el archivo del controlador de la API. Define los principales fuciones del router de la API.
+/models Aqui se definen los esquemas de base de datos. Cualquier cambio en el modelo de datos debe hacerse aquí.
 
-/index.js   Este es el archivo de entrada de la API. Define las rutas utilizando, junto con otros middlewares como autenticacion, los middlewares definidos en la carpeta /midlewares
+/controller Este es el archivo del controlador de la API. Define los principales fuciones del router de la API.
 
-/utils    Aquí puedes poner helpers, librerías y otros tipos de módulos que quieras usar en la API.
+/index.js Este es el archivo de entrada de la API. Define las rutas utilizando, junto con otros middlewares como autenticacion, los middlewares definidos en la carpeta /midlewares
 
-/test   Aqui estan los archivos de testing de la api. 
+/utils Aquí puedes poner helpers, librerías y otros tipos de módulos que quieras usar en la API.
 
-/config   Aqui se definen configuraciones como la coneccion a la base de datos
+/test Aqui estan los archivos de testing de la api.
+
+/config Aqui se definen configuraciones como la coneccion a la base de datos
 
 ## Documentacion
+
 Puede ver mas informacion acerca de los diferentes endpoints en https://documenter.getpostman.com/.
 
 ##
+
 Desafio para [Alkemy](https://www.alkemy.org/)
