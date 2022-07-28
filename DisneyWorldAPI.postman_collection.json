@@ -1,0 +1,546 @@
+{
+	"info": {
+		"_postman_id": "b397997c-26b5-4fc3-942b-bf43a5e95048",
+		"name": "Disney World API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21316249"
+	},
+	"item": [
+		{
+			"name": "Generos",
+			"item": [
+				{
+					"name": "Traer toda la lista de generos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/genres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres"
+							]
+						},
+						"description": "Al enviar una peticion GET a la ruta /genres se obtendra un listado de todos los generos en la base de datos.\n\nComo respuesta obtendra un array de objetos con el siguiente formato:\n\n\\[{\n\nid: 1,\n\nname: \"Accion\",\n\nurlPhoto: \"[https://urlPhoto.com/photo\"](https://urlPhoto.com/photo\")\n\n}, {\n\nid: 2,\n\nname: \"Animacion\",\n\nurlPhoto: \"[https://urlPhoto.com/photo2\"](https://urlPhoto.com/photo2\")\n\n}\\]\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de genero ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Accion\",\r\n    \"urlPhoto\": \"123abc\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/genres/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres",
+								"create"
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /genres/create se creara un nuevo elemento en la base de datos.\n\nSi la creacion es correcta obtendra como respuesta el objeto creado con su respectivo Id\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar genero",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/genres/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres",
+								"delete",
+								"3"
+							]
+						},
+						"description": "Al enviar una peticion DEL a la ruta /genres/delete/:genreId se eliminara el genero que le corresponda el Id enviado.\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Peliculas / Series",
+			"item": [
+				{
+					"name": "Traer toda la lista de peliculas / series",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						},
+						"description": "Al enviar una peticion GET a la ruta /moviesse obtendra un listado de todos los peliculas / series en la base de datos.\n\nComo respuesta obtendra un array de objetos con el siguiente formato:\n\n\\[{\n\nid: 1,\n\ntitle: \"Ariel\",\n\nurlPhoto: \"[https://urlPhoto.com/photo\"](https://desktop.postman.com/?desktopVersion=9.25.0&userId=21316249&teamId=0),\n\ncreationDate: \"2010-03-10\"\n\n}, {\n\nid: 2,\n\ntitle: \"Mohana\",\n\nurlPhoto: \"[https://urlPhoto.com/photo2\"](https://desktop.postman.com/?desktopVersion=9.25.0&userId=21316249&teamId=0),\n\ncreationDate: \"2010-03-10\"\n\n}\\]\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Traer detalle de pelicula",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"1"
+							]
+						},
+						"description": "Al enviar una peticion GET a la ruta /movies/:movieId se obtendra el objeto completo con todos los datos almacenado en la base de datos, personajes y generos relacionados\n\nComo respuesta obtendra un objeto con el siguiente formato:\n\n{\n\nid: 1,\n\nurlPhoto: \"[https://urlPhoto.com/photo](https://urlPhoto.com/photo),\n\ntitle: \"Micky mouse\",\n\ncreationDate: \"2010-03-10\",\n\nrating: 4.5,\n\ngenreId: \"1\",\n\ncharacters: \\[\n\n{ name: \"Mickey\" },\n\n{ name: \"Minie\" } \\],\n\ngenre: { name: \"Comedia\" }\n\n}\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de pelicula",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"urlPhoto\": \"https://static.wikia.nocookie.net/disney/images/b/bc/Encanto_poster_2.JPG/revision/latest?cb=20211002154907&path-prefix=es\",\r\n    \"title\": \"Encanto\",\r\n    \"creationDate\": \"2010-03-10\",\r\n    \"rating\": 4.5,\r\n    \"genreId\": 2,\r\n    \"characters\": [1]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"create"
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /movies/create se creara un nuevo elemento en la base de datos.\n\nSi la creacion es correcta obtendra como respuesta el objeto creado con su respectivo Id\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizacion de pelicula",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"urlPhoto\": \"https://static.wikia.nocookie.net/disney/images/b/bc/Encanto_poster_2.JPG/revision/latest?cb=20211002154907&path-prefix=es\",\r\n    \"title\": \"Encanto\",\r\n    \"creationDate\": \"2010-03-10\",\r\n    \"rating\": 4.5,\r\n    \"genreId\": 2,\r\n    \"characters\": [1]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/update/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"update",
+								"44"
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /movies/update/:movieId se actualizaran los datos enviados en elemento en la base de datos.\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminacion de pelicula",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/movies/delete/45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"delete",
+								"45"
+							]
+						},
+						"description": "StartFragment\n\nAl enviar una peticion DEL a la ruta /movies/delete/:movieId se eliminara el genero que le corresponda el Id enviado.\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Personajes",
+			"item": [
+				{
+					"name": "Traer toda la lista de personajes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "Al enviar una peticion GET a la ruta /characters se obtendra un listado de todos los personajes en la base de datos.\n\nComo respuesta obtendra un array de objetos con el siguiente formato:\n\n\\[{\n\nid: 1,\n\nname: \"Mickey\",\n\nurlPhoto: \"[https://urlPhoto.com/photo\"](https://desktop.postman.com/?desktopVersion=9.25.0&userId=21316249&teamId=0)\n\n}, {\n\nid: 2,\n\nname: \"Minnie\",\n\nurlPhoto: \"[https://urlPhoto.com/photo2\"](https://desktop.postman.com/?desktopVersion=9.25.0&userId=21316249&teamId=0)\n\n}\\]\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle de personaje",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"1"
+							]
+						},
+						"description": "Al enviar una peticion GET a la ruta /characters/:characterId se obtendra el objeto completo con todos los datos almacenado en la base de datos y peliculas relacionadas\n\nComo respuesta obtendra un objeto con el siguiente formato:\n\nStartFragment\n\n{\n\nid: 1, \n\nurlPhoto: \"https://urlPhoto.com/photo,\n\nname: \"Mickey\",\n\nage: 22,    \n\nweight: 120,    \n\nHistory: \"Historia de Mickey\", \n\nmovies: \\[ { title: \"Mickey mouse\" }\\]\n\n}\n\nEndFragment\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de personaje",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"urlPhoto\": \"https://static.wikia.nocookie.net/disney/images/d/d8/MickeyMouse.png/revision/latest/scale-to-width-down/350?cb=20140304090828&path-prefix=es\",\r\n    \"name\": \"Mickey Mouse\",\r\n    \"age\": 94,\r\n    \"weight\": 10,\r\n    \"history\": \"Mickey Mouse el per\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/characters/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"create"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /characters/create se creara un nuevo elemento en la base de datos.\n\nSi la creacion es correcta obtendra como respuesta el objeto creado con su respectivo Id\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizacion de personaje",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"urlPhoto\": \"https://static.wikia.nocookie.net/disney/images/d/d8/MickeyMouse.png/revision/latest/scale-to-width-down/350?cb=20140304090828&path-prefix=es\",\r\n    \"name\": \"Mickey Mouse\",\r\n    \"age\": 94,\r\n    \"weight\": 10,\r\n    \"history\": \"Mickey Mouse el per\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/characters/update/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"update",
+								"14"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /characters/update/:charcterId se actualizaran los datos enviados en elemento en la base de datos.\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminacion de personaje",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"urlPhoto\": \"https://static.wikia.nocookie.net/disney/images/d/d8/MickeyMouse.png/revision/latest/scale-to-width-down/350?cb=20140304090828&path-prefix=es\",\r\n    \"name\": \"Mickey Mouse\",\r\n    \"age\": 94,\r\n    \"weight\": 10,\r\n    \"history\": \"Mickey Mouse el per\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/characters/delete/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"delete",
+								"13"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "StartFragment\n\nAl enviar una peticion DEL a la ruta /characters/delete/:characterId se eliminara el genero que le corresponda el Id enviado.\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Registro de usuarios",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"julian3@gmail.com\",\r\n    \"username\": \"Julian\",\r\n    \"password\": \"123abc\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /auth/register se se creara un nuevo usuario en la base de datos con los datos enviados.\n\nSi el entorno no es desarrollo se debera enviar un token de autorizacion."
+					},
+					"response": []
+				},
+				{
+					"name": "Ingreso de usuarios",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVsaWFzcGVkZXZpbGxhIiwiaWF0IjoxNjU4NDI5NDc1LCJleHAiOjE2NTg0NzI2NzV9.zkC6SlmzUuWafNbcib-MtHsAPPLv3J9EvrvGTNblPWU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userIdentification\": \"Julian\",\r\n    \"password\": \"123abc\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Al enviar una peticion POST a la ruta /auth/login se validaran los datos enviados y se entregara como respuesta un token de acceso que debera mandarse como cabecera en las peticiones.\n\nEn el campo userIdentification se puede enviar en nombre de usuario o el email con el que se registro."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
