@@ -37,7 +37,7 @@ export const deleteGenre = async (req, res, next) => {
       return res.status(404).send('The genre does not exist')
     }
 
-    res.status(200).send('Movie deleted')
+    res.status(200).send('Genre deleted')
   } catch (error) {
     next(error)
   }

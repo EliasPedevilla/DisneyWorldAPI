@@ -9,7 +9,11 @@ export const register = async (req, res, next) => {
   const { username, email, password } = req.body
 
   if (!password || !username || !email) {
-    return res.status(400).json({ msg: 'Incomplete fields' })
+    return res.status(400).send('Incomplete fields')
+  }
+
+  if (typeof (username) !== 'string' || typeof (email) !== 'string') {
+    return res.status(400).send('The username and email must be a string')
   }
 
   try {
@@ -21,6 +25,10 @@ export const register = async (req, res, next) => {
 
     if (repeatUser) {
       return res.status(400).send('Your email or username already exists')
+    }
+
+    if (typeof (password) !== 'string') {
+      return res.status(400).send('The password must be a string')
     }
 
     const salt = bcrypt.genSaltSync(10)
@@ -47,31 +55,35 @@ export const register = async (req, res, next) => {
 }
 
 export const login = async (req, res, next) => {
-  const { password, username } = req.body
+  const { password, userIdentification } = req.body
   try {
-    if (!password || !username) {
-      return res.status(400).json({ msg: 'fill in the fields!' })
+    if (!password || !userIdentification) {
+      return res.status(400).send('Incomplete fields')
+    }
+
+    if (typeof (userIdentification) !== 'string' || typeof (password) !== 'string') {
+      return res.status(400).send('The userIdentification and password must be a string')
     }
 
     const user = await User.findOne({
-      where: { [Op.or]: [{ username }, { email: username }] }
+      where: { [Op.or]: [{ username: userIdentification }, { email: userIdentification }] }
     })
 
     if (!user) {
-      return res.status(400).json({ msg: 'incorrects credentials' })
+      return res.status(400).send('The user does not exist')
     }
 
     const validatePassword = bcrypt.compareSync(password, user.password)
 
     if (!validatePassword) {
-      return res.status(400).json({ msg: 'incorrect password' })
+      return res.status(400).send('Incorrect password')
     }
 
-    const token = jwt.sign({ username }, 'admin', {
-      expiresIn: '12h'
+    const token = jwt.sign({ userIdentification }, 'admin', {
+      expiresIn: '24h'
     })
 
-    res.status(200).json(token)
+    res.status(200).send(token)
   } catch (error) {
     next(error)
   }

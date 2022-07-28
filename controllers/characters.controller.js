@@ -30,7 +30,7 @@ export const getAllCharacters = async (req, res, next) => {
         where: movieFilter,
         required: false
       },
-      attributes: ['urlPhoto', 'name']
+      attributes: ['id', 'urlPhoto', 'name']
     })
 
     res.status(200).json(charactersWithMovies)

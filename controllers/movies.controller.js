@@ -32,7 +32,7 @@ export const getAllmovies = async (req, res, next) => {
         where: filterGenre
       },
       order: [['creationDate', asc]],
-      attributes: ['urlPhoto', 'title', 'creationDate']
+      attributes: ['id', 'urlPhoto', 'title', 'creationDate']
     })
 
     res.status(200).json(moviesWithCharacters)

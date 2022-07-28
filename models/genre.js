@@ -10,10 +10,19 @@ const Genre = sequelize.define(
       autoIncrement: true
     },
     name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        is: /^[A-Za-z0-9/\s]+$/g,
+        len: [3, 20]
+      }
     },
     urlPhoto: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true
+      }
     }
   },
   {

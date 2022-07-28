@@ -75,7 +75,7 @@ describe('CHARACTERS TEST', () => {
     })
   })
 
-  describe('DELETE /characters/delete/:movieId', () => {
+  describe('DEL /characters/delete/:movieId', () => {
     it('response with status 400 and text "The id must be a number"', (done) => {
       request(app)
         .delete('/characters/delete/string')
@@ -165,7 +165,7 @@ describe('MOVIES TEST', () => {
     })
   })
 
-  describe('DELETE /movies/delete/:movieId', () => {
+  describe('DEL /movies/delete/:movieId', () => {
     it('response with status 400 and text "The id must be a number"', (done) => {
       request(app)
         .delete('/movies/delete/string')
@@ -178,6 +178,121 @@ describe('MOVIES TEST', () => {
         .delete('/movies/delete/99999')
         .expect('The movie does not exist')
         .expect(404, done)
+    })
+  })
+})
+
+describe('GENRES TEST', () => {
+  describe('GET /genres', () => {
+    it('response with a json containing all genres', (done) => {
+      request(app)
+        .get('/genres')
+        .expect('Content-Type', /json/)
+        .expect(200, done)
+    })
+  })
+
+  describe('POST /genres/create', () => {
+    it('response with a json containing all genres', (done) => {
+      request(app)
+        .post('/genres/create')
+        .send({})
+        .expect('In the body there are incorrect or empty fields')
+        .expect(400, done)
+    })
+  })
+
+  describe('DEL /genres/delete/:genreId', () => {
+    it('response with status 400 and text "The id must be a number"', (done) => {
+      request(app)
+        .delete('/genres/delete/string')
+        .expect('The id must be a number')
+        .expect(400, done)
+    })
+
+    it('response with status 400 and text "The id must be a number"', (done) => {
+      request(app)
+        .delete('/genres/delete/99999')
+        .expect('The genre does not exist')
+        .expect(404, done)
+    })
+  })
+})
+
+describe('USER TEST', () => {
+  describe('POST /auth/register', () => {
+    it('response with status 400 and text "Incomplete fields"', (done) => {
+      request(app)
+        .post('/auth/register')
+        .expect('Incomplete fields')
+        .expect(400, done)
+    })
+
+    it('response with status 400 and text "The username and email must be a string"', (done) => {
+      request(app)
+        .post('/auth/register')
+        .send({
+          username: 123,
+          email: 'ejemplo@mail.com',
+          password: '123'
+        })
+        .expect('The username and email must be a string')
+        .expect(400, done)
+    })
+
+    it('response with status 400 and text "The password must be a string"', (done) => {
+      request(app)
+        .post('/auth/register')
+        .send({
+          username: 'eliasjorge',
+          email: 'ejemplo@mail.com',
+          password: 123
+        })
+        .expect('The password must be a string')
+        .expect(400, done)
+    })
+
+    it('response with status 400 and text "In the body there are incorrect or empty fields"', (done) => {
+      request(app)
+        .post('/auth/register')
+        .send({
+          username: 'eliasjorge',
+          email: 'ejempl',
+          password: '123'
+        })
+        .expect('In the body there are incorrect or empty fields')
+        .expect(400, done)
+    })
+  })
+
+  describe('POST /auth/login', () => {
+    it('response with status 400 and text "Incomplete fields"', (done) => {
+      request(app)
+        .post('/auth/login')
+        .expect('Incomplete fields')
+        .expect(400, done)
+    })
+
+    it('response with status 400 and text "The username and password must be a string"', (done) => {
+      request(app)
+        .post('/auth/login')
+        .send({
+          username: 'abc',
+          password: 1234
+        })
+        .expect('The username and password must be a string')
+        .expect(400, done)
+    })
+
+    it('response with status 400 and text "The user does not exist"', (done) => {
+      request(app)
+        .post('/auth/login')
+        .send({
+          username: 'abc',
+          password: '1234'
+        })
+        .expect('The user does not exist')
+        .expect(400, done)
     })
   })
 })

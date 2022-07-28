@@ -13,7 +13,7 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: /^[A-Za-z\s]+$/g,
+        is: /^[A-Za-z0-9]+$/g,
         len: [3, 20]
       }
     },
