@@ -10,7 +10,7 @@ Disney World api es una api rest que te permite explorar tanto los personajes co
   git clone git@github.com:EliasPedevilla/DisneyWorldAPI.git
 ```
 
-### Instalar dependencias
+### Instalacion de dependencias
 
 ```bash
   cd DisneyWorldApi
@@ -20,7 +20,7 @@ Disney World api es una api rest que te permite explorar tanto los personajes co
   npm install
 ```
 
-### Configurar variables de entorno
+### Configuracion de variables de entorno
 
 1.  Encontrará un archivo llamado `example.env` en la raíz del proyecto.
 2.  Crea un nuevo archivo copiando y pegando el archivo y renombrándolo como `.env`.
@@ -30,9 +30,9 @@ Disney World api es una api rest que te permite explorar tanto los personajes co
 3.  El archivo `.env` ya es ignorado, por lo que nunca se comprometen las credenciales.
 4.  Cambia los valores del archivo a tu entorno. Comentarios útiles añadidos al archivo `example.env` para entender las constantes.
 
-## Ejecutar el proyecto
+## Ejecutacion del proyecto
 
-### Ejecutando el servidor localmente
+### Ejecucion local del servidor
 
 ```bash
 npm run start
