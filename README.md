@@ -76,7 +76,7 @@ Puedes establecer un comando personalizado para la prueba en el archivo `package
 
 ## Documentacion
 
-Puede ver mas informacion acerca de los diferentes endpoints en https://documenter.getpostman.com/.
+Puede ver mas informacion acerca de los diferentes endpoints en https://documenter.getpostman.com/view/21316249/UzXNVxUf.
 
 ##
 
